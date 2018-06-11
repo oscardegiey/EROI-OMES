@@ -1,6 +1,5 @@
 
-# Study of a 100% Renewable Electricity System for
-Western Europe: an EROI-based analysis
+# Study of a 100% Renewable Electricity System for Western Europe: an EROI-based analysis
 
 
 
