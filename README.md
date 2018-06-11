@@ -1,6 +1,4 @@
 
-	
-
 # Quantification of the electricity storage needs in Western Europe for the energy transition: an EROI based analysis
 
 
@@ -18,32 +16,6 @@ git clone https://github.com/sramelot/memoire2018
 in the appropriate folder.
 
 The git project is now in the desired folder.
-
-When you change something:
-
-```
-git add -A
-git commit -m 'whatYouChanged'
-```
-	
-Before pushing on the repository your changes, check if someone changed something:
-
-```
-git pull
-```
-
-It will say already up-to-date or you will have to merge the changes of the repository with your own changes.
-If you had to merge, commit it
-
-```
-git commit -m 'merge'
-```
-
-Finaly (or if you didn't have to merge)
-
-```
-git push
-```
 
 ### Prerequisites
 
