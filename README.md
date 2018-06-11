@@ -1,5 +1,6 @@
 
-# Quantification of the electricity storage needs in Western Europe for the energy transition: an EROI based analysis
+# Study of a 100% Renewable Electricity System for
+Western Europe: an EROI-based analysis
 
 
 
