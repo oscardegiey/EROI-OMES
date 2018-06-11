@@ -12,7 +12,7 @@ clone the git:
 In the terminal enter
 
 ```
-git clone https://sylvvr@bitbucket.org/memoire2018/memoire2018.git
+git clone https://github.com/sramelot/memoire2018
 ```
 	
 in the appropriate folder.
@@ -49,62 +49,21 @@ git push
 
 You need to install the following packages:
 
+* Anaconda 
 * Pulp
 * PrettyTable
 
+Moreover, the actual codes requires the solver CPLEX from the CPLEX Optimization Suite of IBM. 
+A student license can be obtained here: https://www.ibm.com/products/ilog-cplex-optimization-studio/pricing
 
-### Installing
-
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+However, CPLEX is not mandatory for the program to run. The line 'lp.solve(CPLEX())' in the file 'lp_problem_Pulp.py' can be changed to 
+'lp.solve()' to use the default solver. However this solver will show worse perfomances than CPLEX for low time steps.
 
 
 ## Authors
 
 * **Thibault Martinelle**
 * **Sylvain Ramelot **
-
-## License
-
 
 
 ## Acknowledgments
