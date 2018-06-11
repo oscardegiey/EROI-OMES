@@ -41,6 +41,5 @@ However, CPLEX is not mandatory for the program to run. The line 'lp.solve(CPLEX
 ## Acknowledgments
 
 * This code was highly inspired from the work of **Gauthier Limpens** in the article "*Electricity storage needs for the energy transition : an EROI based analysis
-
 illustrated for the case of Belgium*"
 
