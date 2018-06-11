@@ -35,7 +35,7 @@ However, CPLEX is not mandatory for the program to run. The line 'lp.solve(CPLEX
 ## Authors
 
 * **Thibault Martinelle**
-* **Sylvain Ramelot **
+* **Sylvain Ramelot**
 
 
 ## Acknowledgments
