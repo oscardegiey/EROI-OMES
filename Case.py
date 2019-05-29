@@ -167,7 +167,7 @@ class Case:
                 self.TDays = np.loadtxt(TDays_f)
 
             else: # Start multithreaded computation to find the Typical Days
-                threads = 4
+                threads = 8
                 if self.log_level >= 1:
                     print("\n" + Style.BRIGHT + "=== Typical Days ===" + Style.NORMAL)
                     print("Compute typical days with "+str(threads)+" threads")
