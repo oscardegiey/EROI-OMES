@@ -1,0 +1,144 @@
+name: "France"
+
+re_share: 0  # Minimum share of renewable energy production, at the cell level
+imp_share: 0 # Maximum share of electrical energy imported from outside the system
+nuc_share: 0 # Maximum share of nuclear energy production, at the cell level
+
+consumption_file: "Input_europe/France/France_Cons/2017/France_2017_cons.txt"
+weight: [3,1e-10,1,1]
+
+# PV
+pv:
+    regions:
+        0:
+            name: 'France'
+            installed_cap: 7646e+6
+            load_factor: 0.1397
+            potential: 32658.08904e+6
+            data_file: "Input_europe/France/France_Irr/TXT/Le_HavreGHI_Irr.txt"
+    pps: 5          # Surface necessary for 1 km^2 of PV [km^2/km^2_PV]
+    efficiency: 0.1 # Efficiency of the PV compared to the irradiance
+    CO2perMWh: 45   # CO2 emitted per MWh [kg_CO2eq/MWh]
+    cost: 428e+3    # Energy cost for PV [Wh/km^2]
+    lifetime: 30    # Lifetime [years]
+  
+# Wind power
+wind:
+    onshore:
+        regions:
+            0: # GB
+                name: 'France'
+                installed_cap: 13.539e+9
+                load_factor: 0.2022
+                potential: 276096.4642
+                data_file: "Input_europe/France/France_Wind/TXT/Saint_Brieuc_wind.txt"
+        pps: 4e+6 # Power per surface [W/km^2]
+        CO2perMWh: 12
+        cost: 18713340740.74074
+        lifetime: 25
+        cut_in: 3.5 # wind cut-in speed
+        cut_off: 25 # wind cut-out speed
+        rated_speed: 14 # wind rated speed
+        wtpc: [0,0.0013,0.0052,0.0109,0.0217,0.0357,0.0543,0.0757,0.1065,0.1396,0.1857,0.2313,0.293,0.3543,0.4339,0.513,0.6,0.687,0.7543,0.8217,0.8674,0.913,0.9457,0.9739,0.9913,1] # wind turbine power curve
+        p_nom: 5e6
+    offshore:
+        regions:
+            0: # GB
+                name: 'France'
+                installed_cap: 10e+6
+                load_factor: 0.43
+                potential: 61446.40829
+                data_file: "Input_europe/France/France_Wind/TXT/Saint_Brieuc_wind.txt"
+        pps: 4e+6 # Power per surface [W/km^2]
+        CO2perMWh: 12
+        cost: 39817650000.0
+        lifetime: 25
+        cut_in: 3.5 # wind cut-in speed
+        cut_off: 25 # wind cut-out speed
+        rated_speed: 14 # wind rated speed
+        wtpc: [0,0.0013,0.0052,0.0109,0.0217,0.0357,0.0543,0.0757,0.1065,0.1396,0.1857,0.2313,0.293,0.3543,0.4339,0.513,0.6,0.687,0.7543,0.8217,0.8674,0.913,0.9457,0.9739,0.9913,1] # wind turbine power curve
+        p_nom: 5e6
+        
+ccgt:
+    p_min: 0
+    p_max: 17.898e+9
+    installed_cap: 17.898e+9
+    CO2perMWh: 490
+    efficiency: 0.59
+    
+coal:
+    p_min: 0
+    p_max: 2.997e+9
+    installed_cap: 2.997e+9
+    CO2perMWh: 820
+    efficiency: 1 # Does this make sense ? 
+    
+nuclear:
+    installed_cap: 63.130e+9
+    CO2perMWh: 12
+    load_factor: 0.77
+    
+hydro_dam:
+    installed_cap: 8.277e+9 # W
+    capacity: 10.9715e+12 # Wh
+    annual_prod: 21.943e+12 # Wh
+    CO2perMWh: 24 # Source IPCC2014 (see electricity_map)
+    efficiency_out: 1
+    data_file: "Input_europe/France/France_Local_in/France_Local_in.txt"
+    
+hydro_river:
+    installed_cap: 10.327e+9
+    annual_prod: 26.655e+12
+    CO2perMWh: 24
+    efficiency: 1
+    data_file: "Input_europe/France/France_Local_in/France_Local_in.txt"
+    
+battery:
+    Esizemin: 0         # Minimum storage [Wh]
+    Esizemax: 10e+12    # Maximum storage [Wh]
+    efficiency_in: 0.9  # Efficiency of storing electricity
+    efficiency_out: 1.0 # Efficiency of delivering electricity
+    alpha_in: 0.2       # Charge rate [-/h]
+    alpha_out: 0.2      # Discharge rate [-/h]
+    leak: 0.001         # Leak [-/day]
+    DoD: 0.8            # Depth-of-discharge
+    n_cycle: 6000       # Max number of cycles
+    lifetime: 15        # Lifetime [years]
+    eps_inst: 132       # Energy cost per energy unit (ex: 100 -> 100 J to create 1 J of storage)
+    
+phes:
+    p_inst_in: 4.317e+9  # Maximum input power (storing) [W]
+    p_inst_out: 5.512e+9 # Maximum output power (delivering) [W]
+    capacity: 83.37e+9    # Maximum energy stored [Wh]
+    CO2perMWh: 0         # Depends on the energy stored [kg/MWh]
+    efficiency_out: 0.85 # Efficiency of storing electricity
+    efficiency_in: 0.9   # Efficiency of delivering electricity
+    esoi: 704            # Energy stored on energy invested [Wh/Wh]
+    
+ptg:
+    p_min: 0            # Minimum power [W]
+    p_max: 1e+19        # Maximum power [W]
+    efficiency_in: 0.63 # Efficiency of storing electricity
+    n_cycle: 10000      # Max number of cycles
+    eps_inst: 100       # Energy cost per energy unit [MWh/MW]
+    alpha: 0.15         # Minimal utilisation factor
+    lifetime: 15        # Lifetime [years]
+    
+gas:
+    Esizemin: 0       # Minimum storage of gas [Wh]
+    Esizemax: 100e+12 # Maximum storage of gas [Wh]
+    eps: 0.001        # Energy cost per energy unit [MWh/MWh_stored]
+    lifetime: 25      # Lifetime [years]
+    
+    
+
+
+
+    
+
+            
+    
+            
+                
+
+

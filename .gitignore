@@ -108,3 +108,9 @@ venv.bak/
 .lp
 .sol
 .mps
+
+RESULTS/*
+Input_europe/*
+Input_europe.zip
+.DS_Store
+*.lp

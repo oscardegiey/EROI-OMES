@@ -1,0 +1,24 @@
+name: "plexos_model_V01"
+
+dt: 1 # Time step [hours]
+use_CPLEX: 1 # Use CPLEX Solver if True, CBC Solver if False
+optiTD: 0  #Uses Typical days if True, real values if False
+nrTD: 12 #Number of typical days used for approximating one year
+loadTD: 0
+replicate: 5000
+
+re_share: 1
+imp_share: 0
+nuc_share: 0
+
+cells:
+    - "cells/plexos_model_V01.yml" # Cells to use
+
+
+e_exch: [[0]]
+
+gas_exch: [[0]]
+
+e_imp: [0]
+
+gas_imp: [0]

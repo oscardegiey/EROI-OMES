@@ -1,4 +1,4 @@
-Consumption in British_Isles in 2017
+Consumption in British_Isles in 2017 in MW
 40244.0
 38368.0
 37290.0

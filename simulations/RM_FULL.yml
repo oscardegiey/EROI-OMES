@@ -1,0 +1,39 @@
+name: "RM_FULL"
+
+dt: 1  # Time step [hours]
+use_CPLEX: 1 # Use CPLEX Solver if True, CBC Solver if False
+optiTD: 1  #Uses Typical days if True, real values if False
+nrTD: 24 #Number of typical days used for approximating one year
+loadTD: 0
+replicate: 10000
+
+re_share: 1
+imp_share: 0
+nuc_share: 0
+
+cells:
+    - "cells/RM_British_Isles.yml"
+    - "cells/RM_Germany_Benelux.yml"
+    - "cells/RM_France.yml"
+    - "cells/RM_Scandinavia.yml"
+    - "cells/RM_Iberian_Peninsula.yml"
+    - "cells/RM_Italy_and_Alpine_states.yml"
+
+
+e_exch: [[0,0,2e+9,0,0,0],
+         [0,0,5.5e+9,2.15e+9,0,3.7e+9],
+         [2e+9,6.1e+9,0,0,3e+9,5.775e+9],
+         [0,2.695e+9,0,0,0,0],
+         [0,0,3.1e+9,0,0,0],
+         [0,5.5e+9,2.095e+9,0,0,0]]
+
+gas_exch: [[0,0,0,0,0,0],
+           [0,0,0,0,0,0],
+           [0,0,0,0,0,0],
+           [0,0,0,0,0,0],
+           [0,0,0,0,0,0],
+           [0,0,0,0,0,0],]
+
+e_imp: [0,0,0,0,0,0]
+
+gas_imp: [0,0,0,0,0,0]

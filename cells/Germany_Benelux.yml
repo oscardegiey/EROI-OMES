@@ -1,0 +1,193 @@
+name: "Germany_Benelux"
+
+
+re_share: 0.8  # Minimum share of renewable energy production, at the cell level
+imp_share: 0 # Maximum share of electrical energy imported from outside the system
+nuc_share: 0 # Maximum share of nuclear energy production, at the cell level
+
+consumption_file: "Input_europe/Germany_Benelux/Germany_Benelux_Cons/2017/Germany_Benelux_2017_cons.txt"
+weight: [3,1e-10,1,1]
+
+# PV
+pv:
+    regions:
+#        0:
+#            name: 'Belgium'
+#            installed_cap: 3.369e+9    # Installed capacity [W]
+#            load_factor: 0.12322934 # Load factor compared to nominal power (1000 W/m^2)
+#            potential: 1335.24e+6     # Potential surface available for PV [km^2]
+#            data_file: "Input_europe/Germany_Benelux/Germany_Benelux_Irr/TXT/UccleGHI_Irr.txt"
+        0:
+            name: 'Germany'
+            installed_cap: 45.93e+9
+            load_factor: 0.12448145
+            potential: 15620.93e+6
+            data_file: "Input_europe/Germany_Benelux/Germany_Benelux_Irr/TXT/Francfort1GHI_Irr.txt"
+#        2: 
+#            name: 'Netherlands'
+#            installed_cap: 2.584e+9
+#            load_factor: 0.12196376
+#            potential: 1663.84e+6
+#            data_file: "Input_europe/Germany_Benelux/Germany_Benelux_Irr/TXT/UccleGHI_Irr.txt"
+#        3:
+#            name: 'Luxembourg'
+#            installed_cap: 0.122e+9
+#            load_factor: 0.12969072
+#            potential: 127.75e+6
+#            data_file: "Input_europe/Germany_Benelux/Germany_Benelux_Irr/TXT/UccleGHI_Irr.txt"
+    pps: 5          # Surface necessary for 1 km^2 of PV [km^2/km^2_PV]
+    efficiency: 0.1 # Efficiency of the PV compared to the irradiance
+    CO2perMWh: 45   # CO2 emitted per MWh [kg_CO2eq/MWh]
+    cost: 428e+3    # Energy cost for PV [Wh/km^2]
+    lifetime: 30    # Lifetime [years]
+  
+# Wind power
+wind:
+    onshore:
+        regions:
+#            0:
+#                name: 'Belgium'
+#                installed_cap: 1.979e+9
+#                load_factor: 0.1976
+#                potential: 12370.76
+#                data_file: "Input_europe/Germany_Benelux/Germany_Benelux_Wind/TXT/Uccle_wind.txt"
+            0: 
+                name: 'Germany'
+                installed_cap: 53.01e+9
+                load_factor: 0.19745
+                potential: 143315.74
+                data_file: "Input_europe/Germany_Benelux/Germany_Benelux_Wind/TXT/Lindenberg_wind.txt"
+#            2:
+#                name: 'Netherlands'
+#                installed_cap: 3.675e+9
+#                load_factor: 0.2278
+#                potential: 15457.62
+#                data_file: "Input_europe/Germany_Benelux/Germany_Benelux_Wind/TXT/Uccle_wind.txt"
+#            3:
+#                name: 'Luxembourg'
+#                installed_cap: 0.120e+9
+#                load_factor: 0.2245
+#                potential: 1245.60
+#                data_file: "Input_europe/Germany_Benelux/Germany_Benelux_Wind/TXT/Uccle_wind.txt"
+        pps: 4e+6 # Power per surface [W/km^2]
+        CO2perMWh: 12
+        cost: 18.713e+9
+        lifetime: 25
+        cut_in: 3.5 # wind cut-in speed
+        cut_off: 25 # wind cut-out speed
+        rated_speed: 14 # wind rated speed
+        wtpc: [0,0.0013,0.0052,0.0109,0.0217,0.0357,0.0543,0.0757,0.1065,0.1396,0.1857,0.2313,0.293,0.3543,0.4339,0.513,0.6,0.687,0.7543,0.8217,0.8674,0.913,0.9457,0.9739,0.9913,1] # wind turbine power curve
+        p_nom: 5e6
+    offshore:
+        regions:
+#            0: 
+#                name: 'Belgium'
+#                installed_cap: 1.178e+9
+#                load_factor: 0.3698
+#                potential: 1393.52
+#                data_file: "Input_europe/Germany_Benelux/Germany_Benelux_Wind/TXT/Vlissingen_wind.txt"
+            0: 
+                name: 'Germany'
+                installed_cap: 5.051e+9
+                load_factor: 0.3701
+                potential: 24061.69
+                data_file: "Input_europe/Germany_Benelux/Germany_Benelux_Wind/TXT/Heligoland_wind.txt"
+#            2:
+#                name: 'Netherlands'
+#                installed_cap: 0.957e+9
+#                load_factor: 0.4317
+#                potential: 34143.21
+#                data_file: "Input_europe/Germany_Benelux/Germany_Benelux_Wind/TXT/The_Hague_wind.txt"
+        pps: 4e+6 # Power per surface [W/km^2]
+        CO2perMWh: 12
+        cost: 39.818e+9
+        lifetime: 25
+        cut_in: 3.5 # wind cut-in speed
+        cut_off: 25 # wind cut-out speed
+        rated_speed: 14 # wind rated speed
+        wtpc: [0,0.0013,0.0052,0.0109,0.0217,0.0357,0.0543,0.0757,0.1065,0.1396,0.1857,0.2313,0.293,0.3543,0.4339,0.513,0.6,0.687,0.7543,0.8217,0.8674,0.913,0.9457,0.9739,0.9913,1] # wind turbine power curve
+        p_nom: 5e6
+        
+ccgt:
+    p_min: 0
+    p_max: 72.469e+9
+    installed_cap: 72.469e+9
+    CO2perMWh: 490
+    efficiency: 0.59
+    
+coal:
+    p_min: 0
+    p_max: 50.445e+9
+    installed_cap: 50.445e+9
+    CO2perMWh: 820
+    efficiency: 1 # Does this make sense ? 
+    
+nuclear:
+    installed_cap: 15.914e+9
+    CO2perMWh: 12
+    load_factor: 0.77
+    
+hydro_dam:
+    installed_cap: 698e+6 # W
+    capacity: 316.5e+9 # Wh
+    annual_prod: 633e+9 # Wh
+    CO2perMWh: 24 # Source IPCC2014 (see electricity_map)
+    efficiency_out: 1
+    data_file: "Input_europe/Germany_Benelux/Germany_Benelux_Local_in/Germany_Benelux_Local_in.txt"
+    
+hydro_river:
+    installed_cap: 3.827e+9
+    annual_prod: 19235e+9
+    CO2perMWh: 24
+    efficiency: 1
+    data_file: "Input_europe/Germany_Benelux/Germany_Benelux_Local_in/Germany_Benelux_Local_in.txt"
+    
+battery:
+    Esizemin: 0         # Minimum storage [Wh]
+    Esizemax: 100e+12    # Maximum storage [Wh]
+    efficiency_in: 0.9  # Efficiency of storing electricity
+    efficiency_out: 1.0 # Efficiency of delivering electricity
+    alpha_in: 0.2       # Charge rate [-/h]
+    alpha_out: 0.2      # Discharge rate [-/h]
+    leak: 0.001         # Leak [-/day]
+    DoD: 0.8            # Depth-of-discharge
+    n_cycle: 6000       # Max number of cycles
+    lifetime: 15        # Lifetime [years]
+    eps_inst: 132       # Energy cost per energy unit (ex: 100 -> 100 J to create 1 J of storage)
+    
+phes:
+    p_inst_in: 8.663e+9  # Maximum input power (storing) [W]
+    p_inst_out: 9.402e+9 # Maximum output power (delivering) [W]
+    capacity: 49.75e+9   # Maximum energy stored [Wh]
+    CO2perMWh: 0         # Depends on the energy stored [kg/MWh]
+    efficiency_out: 0.85 # Efficiency of storing electricity
+    efficiency_in: 0.9   # Efficiency of delivering electricity
+    esoi: 704            # Energy stored on energy invested [Wh/Wh]
+    
+ptg:
+    p_min: 0            # Minimum power [W]
+    p_max: 1000e+8      # Maximum power [W]
+    efficiency_in: 0.63 # Efficiency of storing electricity
+    n_cycle: 10000      # Max number of cycles
+    eps_inst: 100       # Energy cost per energy unit [MWh/MW]
+    alpha: 0.15         # Minimal utilisation factor
+    lifetime: 15        # Lifetime [years]
+    
+gas:
+    Esizemin: 0       # Minimum storage of gas [Wh]
+    Esizemax: 100e+12 # Maximum storage of gas [Wh]
+    eps: 0.001        # Energy cost per energy unit [MWh/MWh_stored]
+    lifetime: 25      # Lifetime [years]
+    
+    
+
+
+
+    
+
+            
+    
+            
+                
+
+

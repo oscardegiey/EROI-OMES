@@ -1,0 +1,27 @@
+name: "two_cells"
+
+dt: 2 # Time step [hours]
+use_CPLEX: 1 # Use CPLEX Solver if True, CBC Solver if False
+optiTD: 1  #Uses Typical days if True, real values if False
+nrTD: 8 #Number of typical days used for approximating one year 
+loadTD: 1
+replicate: 50
+
+re_share: 1
+imp_share: 0
+nuc_share: 0
+
+cells:
+    - "cells/RM_Germany_Benelux.yml" # Cells to use
+    - "cells/RM_British_Isles.yml"
+
+
+e_exch: [[0, 1e9],
+         [1e9, 0]]
+
+gas_exch: [[0, 0],
+           [0, 0]]
+
+e_imp: [0, 0]
+
+gas_imp: [0, 0]
